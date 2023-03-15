@@ -5,6 +5,7 @@ const { createApp } = Vue
         data() {
             return {
                 activeImage: 0,
+                index: 0,
                 slides: [
                     {
                         image: 'img/01.webp',
@@ -36,16 +37,26 @@ const { createApp } = Vue
         },
         methods: {
             imageNext () {
-                this.activeImage++
-                if(this.activeImage < this.activeImage.length - 1 ) {
-                    return this.activeImage = 0;
+                
+                if(this.activeImage < this.slides.length - 1) {
+                    this.activeImage++
+                } else {
+                    this.activeImage = 0
                 }
+                
             },
             imagePrev () {
-                this.activeImage--
-                if(this.activeImage == 0) {
-                    return this.activeImage = this.activeImage.length - 1;
+                
+                if(this.activeImage > 0) {
+                    this.activeImage--
+                } else {
+                    this.activeImage = this.slides.length - 1;
                 }
+                
+                
+            },
+            thumbClick (activeIndex) {
+                this.activeImage = activeIndex;
             }
         }
 
