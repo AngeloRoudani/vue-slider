@@ -35,6 +35,9 @@ const { createApp } = Vue
                 ]
             }
         },
+        mounted: {
+            
+        },
         methods: {
             imageNext () {
                 
@@ -59,7 +62,7 @@ const { createApp } = Vue
                 return this.activeImage = activeIndex;
             },
             autoPlay () {
-                setInterval(imageNext, 3000);
+                setInterval(this.imageNext, 3000);
             },
         },
         mounted () {
