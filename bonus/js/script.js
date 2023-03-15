@@ -57,7 +57,13 @@ const { createApp } = Vue
             },
             thumbClick (activeIndex) {
                 return this.activeImage = activeIndex;
-            }
+            },
+            autoPlay () {
+                setInterval(imageNext, 3000);
+            },
+        },
+        mounted () {
+            this.autoPlay();
         }
 
     }).mount('#app');
