@@ -56,7 +56,7 @@ const { createApp } = Vue
                 
             },
             thumbClick (activeIndex) {
-                this.activeImage = activeIndex;
+                return this.activeImage = activeIndex;
             }
         }
 
