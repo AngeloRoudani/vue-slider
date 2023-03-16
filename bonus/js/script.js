@@ -6,6 +6,7 @@ const { createApp } = Vue
             return {
                 activeImage: 0,
                 thumbActive: 'active',
+                clock: '',
                 slides: [
                     {
                         image: 'img/01.webp',
@@ -56,14 +57,18 @@ const { createApp } = Vue
                     this.activeImage = this.slides.length - 1;
                 }
                 
-                
             },
             thumbClick (activeIndex) {
                 return this.activeImage = activeIndex;
             },
             autoPlay () {
-                setInterval(this.imageNext, 3000);
+                this.clock = setInterval(this.imageNext, 3000);
             },
+            stopPlay () {
+               clearInterval(this.clock);
+               this.clock = "";
+            }
+            
         },
         mounted () {
             this.autoPlay();
